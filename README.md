@@ -8,9 +8,9 @@ Created by Renan Niemietz Cardoso
 ## Dependencies
 [Bootstrap CSS v4.3.1](https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css)
 
-[XLSX v0.14.3] (https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js)
+[XLSX v0.14.3](https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js)
 
-Before declaring "massimp.min.js", make sure "Bootstrap CSS v4.3.1", "massimp.min.css" and "XLSX v0.14.3" were declared previously in your HTML, like the following example:
+Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massimp.min.css** and **XLSX v0.14.3** were declared previously in your HTML, like the following example:
 ```html
 ...
 <head>
@@ -24,28 +24,28 @@ Before declaring "massimp.min.js", make sure "Bootstrap CSS v4.3.1", "massimp.mi
 
 ## Usage
 
-1. Create a <div> element with a class named "massimp-container", inside your HTML file
+1. Create a **<div>** element with a class named **massimp-container**, inside your HTML file
 
 2. After document is loaded, start the Massimp element by doing the following:
 
-...Using jQuery:
+    Using jQuery:
 ```javascript
 $(".massimp-container").massimp( [OPTIONS] );
 ```
 
-...Using pure ES6 / Javascript:
+    Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp( [OPTIONS] );
 ```
-...or
+    or
 ```javascript
 new Massimp(".massimp-container", [OPTIONS] );
 ```
-..*PS.:
+    *PS.:
 
-...If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
+    If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
 
-...Using jQuery:
+    Using jQuery:
 ```javascript
 $(".massimp-container").massimp({
     showInputFileText: false,
@@ -54,7 +54,7 @@ $(".massimp-container").massimp({
 });
 ```
 
-...Using pure ES6 / Javascript:
+    Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp({
     showInputFileText: false,
@@ -62,7 +62,7 @@ getElementsByClassName("massimp-container")[0].massimp({
     buttonText: "Make it happen!"
 });
 ```
-...or
+    or
 ```javascript
 new Massimp(".massimp-container", {
     showInputFileText: false,
@@ -74,7 +74,7 @@ new Massimp(".massimp-container", {
 ## Options
 
 Option | Default | Description | Example
---- | --- | ---
+--- | --- | --- | ---
 language | Local language or en-US if local language is unavailable | Component language (Only pt-BR and en-US are avalible for now) | "en-US"
 attributes | [ ] | Attributes do associate with the massive data file columns | [ { valor: "name", titulo: "NOME" }, { valor: "age", titulo: "IDADE" }, { valor: "userImage", titulo: "FOTO", isImage: true } ]
 inputFileText | "List" | Text beside file input | "File"
@@ -91,7 +91,7 @@ onExtraButtonClicked | null | Action after extra button has been clicked | funct
 ## Methods:
 
 Method | Description | Parameter Type | Return Type
---- | --- | ---
+--- | --- | --- | ---
 setShowInputFileText | Show or hide the text beside file input | boolean | void
 setInputFileText | Change the text beside file input | string | void
 setInputFileInsideText | Change the text inside file input | string | void
