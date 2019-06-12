@@ -1,4 +1,4 @@
-# Massimp v0.1
+# Massimp v0.1 (w/ Materialize)
 An HTML component for treatment and processing of massive data
 
 Written in **JavaScript (ES6)**
@@ -6,15 +6,15 @@ Written in **JavaScript (ES6)**
 Created by **Renan Niemietz Cardoso**
 
 ## Dependencies
-[Bootstrap CSS v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1)
+[Materialize CSS v0.100.0](https://github.com/Dogfalo/materialize/tree/v0.100.0)
 
 [XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)
 
-Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massimp.min.css** and **XLSX v0.14.0** were declared previously in your HTML, like the following example:
+Before declaring **massimp.min.js**, make sure **[Materialize CSS v0.100.0](https://github.com/Dogfalo/materialize/tree/v0.100.0)**, **massimp.min.css** and **[XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)** were declared previously in your HTML, like the following example:
 ```html
 ...
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="massimp.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.full.min.js"></script>
     <script type="text/javascript" src="massimp.min.js"></script>
@@ -67,20 +67,20 @@ new Massimp(".massimp-container", {
 
 ## Options
 
-Option | Default | Description | Example
+Option | Default | Description | Type
 --- | --- | --- | ---
-language | Local language or en-US if local language is unavailable | Component language (Only pt-BR and en-US are avalible for now) | "en-US"
-attributes | [ ] | Attributes do associate with the massive data file columns | [ { valor: "name", titulo: "NOME" }, { valor: "age", titulo: "IDADE" }, { valor: "userImage", titulo: "FOTO", isImage: true } ]
-inputFileText | "List" | Text beside file input | "File"
-inputFileInsideText | "Choose a file" | Text inside file input | "CSV, XLS or XLSX file ..."
-maxVerticalRowsToDisplay | 5 | Number of visible rows vertically | 2
-colorButtonClass | "blue" | Main button's class | "green"
-buttonText | "Do it!" | Main button's text | "Make it happen!"
-onButtonClicked | null | Action after main button has been clicked (Triggered after processing) | function(result) { console.log(result); }
-showExtraButton | false | Show or hide the extra button (Button without pre-action) | true
-colorExtraButtonClass | "red" | Extra button's class | "orange"
-extraButtonText | "Cancel" | Extra button's text | "Back"
-onExtraButtonClicked | null | Action after extra button has been clicked | function() { console.log("Back clicked!"); }
+language | Browser's language or "en-US" if browser's language is not supported | Component language (Only pt-BR and en-US are avalible for now) | string
+attributes | [ ] | Attributes do associate with the massive data file columns | Array of objects
+inputFileText | "List" | Text beside file input | string
+inputFileInsideText | "Choose a file" | Text inside file input | string
+maxVerticalRowsToDisplay | 5 | Number of visible rows vertically | number
+colorButtonClass | "blue" | Main button's class | string
+buttonText | "Do it!" | Main button's text | string
+onButtonClicked | null | Action after main button has been clicked (Triggered after processing) | function
+showExtraButton | false | Show or hide the extra button (Button without pre-action) | boolean
+colorExtraButtonClass | "red" | Extra button's class | string
+extraButtonText | "Cancel" | Extra button's text | string
+onExtraButtonClicked | null | Action after extra button has been clicked | function
 
 ## Methods:
 
@@ -90,7 +90,7 @@ setShowInputFileText | Show or hide the text beside file input | boolean | void
 setInputFileText | Change the text beside file input | string | void
 setInputFileInsideText | Change the text inside file input | string | void
 setMaxVerticalRowsToDisplay | Changes the number of visible rows vertically | number | void
-getNumberOfObjects | Gets the number of objects/lines to be inserted | null | number
+getNumberOfObjects | Gets the number of objects/lines to be inserted |  | number
 setColorButtonClass | Change the main button's class | string | void
 setButtonText | Change the main button's text | string | void
 setShowExtraButton | Show or hide the extra button (Button without pre-action) | boolean | void
