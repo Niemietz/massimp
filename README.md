@@ -66,14 +66,14 @@ new Massimp(".massimp-container", {
 
 Option | Default | Description | Type
 --- | --- | --- | ---
-language | Browser's language or "en-US" if browser's language is not supported | Component language (Only pt-BR and en-US are avalible for now) | string
+language | Browser's language or "en-US" if browser's language is not supported | Component language (Only "pt-BR" and "en-US" are avalible for now) | string
 attributes | [ ] | Attributes do associate with the massive data file columns | Array of objects
 inputFileText | "List" | Text beside file input | string
 inputFileInsideText | "Choose a file" | Text inside file input | string
 maxVerticalRowsToDisplay | 5 | Number of visible rows vertically | number
 colorButtonClass | "blue" | Main button's class | string
 buttonText | "Do it!" | Main button's text | string
-onButtonClicked | null | Action after main button has been clicked (Triggered after processing) | function
+onButtonClicked | null | Action after main button has been clicked (Triggered after procedure/calculation) | function
 showExtraButton | false | Show or hide the extra button (Button without pre-action) | boolean
 colorExtraButtonClass | "red" | Extra button's class | string
 extraButtonText | "Cancel" | Extra button's text | string
@@ -93,10 +93,10 @@ setButtonText | Change the main button's text | string | void
 setShowExtraButton | Show or hide the extra button (Button without pre-action) | boolean | void
 setColorExtraButtonClass | Change the extra button's class | string | void
 setExtraButtonText | Change the extra button's text | string | void
-processMassiveImport | Process/Calculate the massive import | function | void
+processMassiveImport | Process/Calculate the massive data | function | void
 
 ## Events (jQuery Only)
 
 Event | Description
 --- | ---
-after.mp.process | This event fires when the massive import process/calculation is done
+after.mp.process | This event fires when the procedure/calculation is done
