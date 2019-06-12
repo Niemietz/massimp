@@ -6,9 +6,6 @@ Written in **JavaScript (ES6)**
 Created by **Renan Niemietz Cardoso**
 
 ## Dependencies
-[Materialize CSS v0.100.0](https://github.com/Dogfalo/materialize/tree/v0.100.0)
-
-[XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)
 
 Before declaring **massimp.min.js**, make sure **[Materialize CSS v0.100.0](https://github.com/Dogfalo/materialize/tree/v0.100.0)**, **massimp.min.css** and **[XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)** were declared previously in your HTML, like the following example:
 ```html
@@ -32,7 +29,7 @@ Before declaring **massimp.min.js**, make sure **[Materialize CSS v0.100.0](http
 ```javascript
 $(".massimp-container").massimp( [OPTIONS] );
 ```
-   * Eg.:
+   * e.g.:
 ```javascript
 $(".massimp-container").massimp({
     showInputFileText: false,
@@ -44,7 +41,7 @@ $(".massimp-container").massimp({
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp( [OPTIONS] );
 ```
-   * Eg.:
+   * e.g.:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp({
     showInputFileText: false,
@@ -56,7 +53,7 @@ getElementsByClassName("massimp-container")[0].massimp({
 ```javascript
 new Massimp(".massimp-container", [OPTIONS] );
 ```
-   * Eg.:
+   * e.g.:
 ```javascript
 new Massimp(".massimp-container", {
     showInputFileText: false,
@@ -82,7 +79,7 @@ colorExtraButtonClass | "red" | Extra button's class | string
 extraButtonText | "Cancel" | Extra button's text | string
 onExtraButtonClicked | null | Action after extra button has been clicked | function
 
-## Methods:
+## Methods
 
 Method | Description | Parameter Type | Return Type
 --- | --- | --- | ---
@@ -98,7 +95,7 @@ setColorExtraButtonClass | Change the extra button's class | string | void
 setExtraButtonText | Change the extra button's text | string | void
 processMassiveImport | Process/Calculate the massive import | function | void
 
-## Events (jQuery Only):
+## Events (jQuery Only)
 
 Event | Description
 --- | ---
