@@ -28,27 +28,21 @@ Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massi
 
 2. After document is loaded, start the Massimp element by doing the following:
 
-    Using jQuery:
+⋅⋅⋅Using jQuery:
 ```javascript
 $(".massimp-container").massimp( [OPTIONS] );
 ```
-
-    Using pure ES6 / Javascript:
-
+⋅⋅⋅Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp( [OPTIONS] );
 ```
-    or
-
+⋅⋅⋅or
 ```javascript
 new Massimp(".massimp-container", [OPTIONS] );
 ```
-*PS.:
-
-    If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
-
-    Using jQuery:
-
+⋅⋅* PS.:
+⋅⋅⋅If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
+⋅⋅⋅Using jQuery:
 ```javascript
 $(".massimp-container").massimp({
     showInputFileText: false,
@@ -56,9 +50,7 @@ $(".massimp-container").massimp({
     buttonText: "Make it happen!"
 });
 ```
-
-    Using pure ES6 / Javascript:
-
+⋅⋅⋅Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp({
     showInputFileText: false,
@@ -66,8 +58,7 @@ getElementsByClassName("massimp-container")[0].massimp({
     buttonText: "Make it happen!"
 });
 ```
-    or
-    
+⋅⋅⋅or
 ```javascript
 new Massimp(".massimp-container", {
     showInputFileText: false,
