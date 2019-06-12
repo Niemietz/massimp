@@ -1,22 +1,22 @@
 # Massimp v0.1
 An HTML component for treatment and processing of massive data
 
-Written in ES6 / JavaScript
+Written in **JavaScript (ES6)**
 
-Created by Renan Niemietz Cardoso
+Created by **Renan Niemietz Cardoso**
 
 ## Dependencies
-[Bootstrap CSS v4.3.1](https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css)
+[Bootstrap CSS v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1)
 
-[XLSX v0.14.3](https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js)
+[XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)
 
-Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massimp.min.css** and **XLSX v0.14.3** were declared previously in your HTML, like the following example:
+Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massimp.min.css** and **XLSX v0.14.0** were declared previously in your HTML, like the following example:
 ```html
 ...
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="massimp.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.full.min.js"></script>
     <script type="text/javascript" src="massimp.min.js"></script>
 </head>
 ...
@@ -28,21 +28,21 @@ Before declaring **massimp.min.js**, make sure **Bootstrap CSS v4.3.1**, **massi
 
 2. After document is loaded, start the Massimp element by doing the following:
 
-⋅⋅⋅Using jQuery:
+   Using jQuery:
 ```javascript
 $(".massimp-container").massimp( [OPTIONS] );
 ```
-⋅⋅⋅Using pure ES6 / Javascript:
+   Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp( [OPTIONS] );
 ```
-⋅⋅⋅or
+   or
 ```javascript
 new Massimp(".massimp-container", [OPTIONS] );
 ```
-⋅⋅* PS.:
-⋅⋅⋅If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
-⋅⋅⋅Using jQuery:
+   * PS.:
+   If you want the set the default settings of the Massimp Element, send the options object as parameter, like:
+   Using jQuery:
 ```javascript
 $(".massimp-container").massimp({
     showInputFileText: false,
@@ -50,7 +50,7 @@ $(".massimp-container").massimp({
     buttonText: "Make it happen!"
 });
 ```
-⋅⋅⋅Using pure ES6 / Javascript:
+   Using pure ES6 / Javascript:
 ```javascript
 getElementsByClassName("massimp-container")[0].massimp({
     showInputFileText: false,
@@ -58,7 +58,7 @@ getElementsByClassName("massimp-container")[0].massimp({
     buttonText: "Make it happen!"
 });
 ```
-⋅⋅⋅or
+   or
 ```javascript
 new Massimp(".massimp-container", {
     showInputFileText: false,
