@@ -25,7 +25,7 @@ Antes de declarar o **massimp.min.js**, tenha certeza que o **[Materialize CSS v
 ...
 ```
 
-## Uso
+## Utilização
 
 1. Crie um elemento **\<div\>** com uma *class* chamada **massimp-container**, dentro de seu arquivo HTML
 
@@ -78,11 +78,11 @@ inputFileText | "Lista" | Texto ao lado do input de arquivo | string
 inputFileInsideText | "Escolha um arquivo" | Texto dentro do input de arquivo | string
 maxVerticalRowsToDisplay | 5 | Numero de linhas visíveis verticalmente | number
 colorButtonClass | "blue" | *Class* do botão principal | string
-buttonText | "Do it!" | Texto do botão principal | string
+buttonText | "Processar!" | Texto do botão principal | string
 onButtonClicked | null | Ação após o botão principal ter sido clicado (Acionado após o procedimente) | function
 showExtraButton | false | Exibe or esconde o butão extra (Botão sem ação prévia) | boolean
 colorExtraButtonClass | "red" | *Class* do botão extra | string
-extraButtonText | "Cancel" | Texto do botão extra | string
+extraButtonText | "Cancelar" | Texto do botão extra | string
 onExtraButtonClicked | null | Ação após botão extra ter sido clicado | function
 onError | function(error) { console.error(error) } | Ação após ocorrer um erro | function
 
@@ -104,11 +104,11 @@ processMassiveImport | Processa os dados masivos | function | void
 
    * exemplo em jQuery:
 ```javascript
-$(".massimp-container").massimp("setInputFileInsideText", ".xls, .xlsx or .csv file ...");
+$(".massimp-container").massimp("setInputFileInsideText", "Arquivo .xls, .xlsx ou .csv ...");
 ```
    * exemplo em Javascript (ES6) puro:
 ```javascript
-getElementsByClassName("massimp-container")[0]._massimp.setInputFileInsideText(".xls, .xlsx or .csv file ...");
+getElementsByClassName("massimp-container")[0]._massimp.setInputFileInsideText("Arquivo .xls, .xlsx ou .csv ...");
 ```
 
 ## Eventos (Somente jQuery)
