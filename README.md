@@ -1,4 +1,4 @@
-# Massimp v0.1 (w/ Materialize)
+# Massimp v0.1 (for Materialize)
 An HTML component for treatment and processing of massive data
 
 Written in **JavaScript (ES6)**

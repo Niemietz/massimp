@@ -9,18 +9,18 @@
 const Massimp = (function ()
 {
     // ===== "GLOBAL" VARIABLES AND CONSTANTS =====
-    let atributos = [ ];
+    let _attributes = [ ];
 
-    const massimpErrorPrefix = "Massimp Error: ";
+    const errorPrefix = "Massimp Error: ";
     const _languages = {
         "en-us": {
             // MASSIMP ERRORs
-            elementNotFound: massimpErrorPrefix + "Element not found",
-            fileWithNoContent: massimpErrorPrefix + "File without content",
-            invalidFile: massimpErrorPrefix + "Invalid file",
-            noDataProcessed: massimpErrorPrefix + "No data was processed",
-            noAttributeAssociated: massimpErrorPrefix + "None attribute was associated to any column from file",
-            noFileSet: massimpErrorPrefix + "No file was set",
+            elementNotFound: errorPrefix + "Element not found",
+            fileWithNoContent: errorPrefix + "File without content",
+            invalidFile: errorPrefix + "Invalid file",
+            noDataProcessed: errorPrefix + "No data was processed",
+            noAttributeAssociated: errorPrefix + "None attribute was associated to any column from file",
+            noFileSet: errorPrefix + "No file was set",
 
             // ELEMENTs STRINGs
             list: "List",
@@ -39,12 +39,12 @@ const Massimp = (function ()
         },
         "pt-br": {
             // MASSIMP ERRORs
-            elementNotFound: massimpErrorPrefix + "Elemento não encontrado",
-            fileWithNoContent: massimpErrorPrefix + "Não foi possível encontrar conteúdo neste arquivo!",
-            invalidFile: massimpErrorPrefix + "Arquivo inválido",
-            noDataProcessed: massimpErrorPrefix + "Nenhum dado foi processado",
-            noAttributeAssociated: massimpErrorPrefix + "Nenhum atributo foi associado à nenhuma coluna do arquivo",
-            noFileSet: massimpErrorPrefix + "Nenhum arquivo foi selecionado",
+            elementNotFound: errorPrefix + "Elemento não encontrado",
+            fileWithNoContent: errorPrefix + "Não foi possível encontrar conteúdo neste arquivo!",
+            invalidFile: errorPrefix + "Arquivo inválido",
+            noDataProcessed: errorPrefix + "Nenhum dado foi processado",
+            noAttributeAssociated: errorPrefix + "Nenhum atributo foi associado à nenhuma coluna do arquivo",
+            noFileSet: errorPrefix + "Nenhum arquivo foi selecionado",
 
             // ELEMENTs STRINGs
             list: "Lista",
@@ -1154,7 +1154,7 @@ const Massimp = (function ()
             
                             attributeSelect.appendChild(emptyOption);
             
-                            atributos.forEach(function(atributo, index)
+                            _attributes.forEach(function(atributo, index)
                             {
                                 if(atributo.isImage == null || atributo.isImage == false)
                                 {
@@ -1286,17 +1286,17 @@ const Massimp = (function ()
                     }
                 },
             
-                /** @_showResultTable
+                /** @_showImageAssociationTable
                     * @param {Array} result - Result of process and calculation 
                     */
-                _showResultTable: function(result)
+                _showImageAssociationTable: function(result)
                 {
                     let tableDiv = this._getTableResultDivElement();
                     let tableBody = this._getTableResultBodyElement();
                     let tableHead = this._getTableResultHeadElement();
-                    if(tableDiv != null && tableBody != null && tableHead != null && atributos.length > 0)
+                    if(tableDiv != null && tableBody != null && tableHead != null && _attributes.length > 0)
                     {
-                        this._removeResultTable();
+                        this._removeImageAssociationTable();
             
                         result.forEach((item, jndex) =>
                         {
@@ -1304,15 +1304,15 @@ const Massimp = (function ()
                             {
                                 let headRow = document.createElement('tr');
             
-                                Object.keys(atributos).forEach(function(key, index)
+                                Object.keys(_attributes).forEach(function(key, index)
                                 {
                                     // HEAD
-                                    if(((atributos[key].isImage == null || atributos[key].isImage == false) && item[atributos[key].valor] != null) || atributos[key].isImage == true)
+                                    if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].valor] != null) || _attributes[key].isImage == true)
                                     {
                                         const indexHeadCol = document.createElement('th');
                                         indexHeadCol.setAttribute("scope", "col");
-                                        indexHeadCol.innerHTML = atributos[key].titulo;
-                                        if(atributos[key].isImage == true)
+                                        indexHeadCol.innerHTML = _attributes[key].titulo;
+                                        if(_attributes[key].isImage == true)
                                         {
                                             indexHeadCol.style.textAlign = "center";
                                         }
@@ -1327,15 +1327,15 @@ const Massimp = (function ()
                             let row = document.createElement('tr');
             
                             let i = 0;
-                            Object.keys(atributos).forEach((key, index) =>
+                            Object.keys(_attributes).forEach((key, index) =>
                             {
-                                if(((atributos[key].isImage == null || atributos[key].isImage == false) && item[atributos[key].valor] != null) || atributos[key].isImage == true)
+                                if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].valor] != null) || _attributes[key].isImage == true)
                                 {
                                     const attributeCol = document.createElement('td');
-                                    attributeCol.classList.add("massimp-attribute-" + atributos[key].valor);
+                                    attributeCol.classList.add("massimp-attribute-" + _attributes[key].valor);
             
                                     let attributeContent = document.createElement('span');
-                                    if(atributos[key].isImage == true)
+                                    if(_attributes[key].isImage == true)
                                     {
                                         attributeCol.style.textAlign = "center";
                                         
@@ -1490,7 +1490,7 @@ const Massimp = (function ()
                                     }
                                     else
                                     {
-                                        attributeContent.innerHTML = item[atributos[key].valor];
+                                        attributeContent.innerHTML = item[_attributes[key].valor];
                                         attributeCol.appendChild(attributeContent);
                                     }
                             
@@ -1509,8 +1509,8 @@ const Massimp = (function ()
                     }
                 },
 
-                /** @_removeResultTable */
-                _removeResultTable: function()
+                /** @_removeImageAssociationTable */
+                _removeImageAssociationTable: function()
                 {
                     let tableDiv = this._getTableResultDivElement();
                     let tableBody = this._getTableResultBodyElement();
@@ -1602,7 +1602,7 @@ const Massimp = (function ()
                         {
                             _showImagesTable = true;
     
-                            this._removeResultTable();
+                            this._removeImageAssociationTable();
 
                             ending(result);
                         }
@@ -1671,7 +1671,7 @@ const Massimp = (function ()
                                     });
                 
                                     // ADDING UNSET ATTRIBUTES WITH NULL VALUE
-                                    atributos.forEach(function(attr, index)
+                                    _attributes.forEach(function(attr, index)
                                     {                        
                                         if(attr.valor != null && new_item[attr.valor] == null && (attr.isImage == null || attr.isImage == false))
                                         {
@@ -1760,14 +1760,14 @@ const Massimp = (function ()
                             newAttribute.isImage = _options.attributes[((useIndex) ? index : key)].isImage;
                         }
 
-                        atributos.push(newAttribute);
+                        _attributes.push(newAttribute);
                     });
 
                     // TODO Change the code below if Massimp should send an error instead of deleting the twin attribute
                     let attr2Exclude = [];
-                    for(let index = 0; index < atributos.length; index++)
+                    for(let index = 0; index < _attributes.length; index++)
                     {
-                        const allOcorrencies = getAllIndexes(atributos, atributos[index].valor, "valor");
+                        const allOcorrencies = getAllIndexes(_attributes, _attributes[index].valor, "valor");
                         if(allOcorrencies.length > 1)
                         {
                             allOcorrencies.forEach(function(ocorrency, i)
@@ -1785,7 +1785,7 @@ const Massimp = (function ()
 
                     attr2Exclude.forEach(function(attrIndex, index)
                     {
-                        delete atributos[attrIndex];
+                        delete _attributes[attrIndex];
                     });
                     // -------------------------------------------------------------------------------------------------
                 }
@@ -1806,7 +1806,7 @@ const Massimp = (function ()
                         // --------------------
 
                         // REMOVING COLUMN ASSOCIATION TABLE AND RESULT (IMAGE ASSOCIATION) TABLE
-                        privateProps.get(this)._removeResultTable();
+                        privateProps.get(this)._removeImageAssociationTable();
                         privateProps.get(this)._removeColumnAssociationTable();
                         
                         // INDICATING THAT A FILE WAS UNSET
@@ -1877,7 +1877,7 @@ const Massimp = (function ()
                         {
                             // REMOVE COLUMN ASSOCIATION TABLE AND RESULT (IMAGE ASSOCIATION) TABLE FROM PREVIOUS FILES
                             privateProps.get(this)._removeColumnAssociationTable();
-                            privateProps.get(this)._removeResultTable();
+                            privateProps.get(this)._removeImageAssociationTable();
 
                             // INDICATES THAT A FILE WAS SET
                             const inputFileInsideText = privateProps.get(this)._getInputFileInsideTextElement();
@@ -2004,7 +2004,7 @@ const Massimp = (function ()
                         {
                             privateProps.get(this)._process(false, (result) =>
                             {
-                                privateProps.get(this)._showResultTable(result);
+                                privateProps.get(this)._showImageAssociationTable(result);
 
                                 _imagesProcessed = false;
                             });
@@ -2036,7 +2036,7 @@ const Massimp = (function ()
                             {
                                 privateProps.get(this)._process(false, (result) =>
                                 {
-                                    privateProps.get(this)._showResultTable(result);
+                                    privateProps.get(this)._showImageAssociationTable(result);
 
                                     _imagesProcessed = false;
                                 });
@@ -2300,7 +2300,7 @@ const Massimp = (function ()
                 {
                     privateProps.get(this)._process(false, (result) =>
                     {
-                        privateProps.get(this)._showResultTable(result);
+                        privateProps.get(this)._showImageAssociationTable(result);
 
                         _imagesProcessed = false;
                     });
