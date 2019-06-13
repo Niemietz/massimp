@@ -95,13 +95,54 @@ setColorExtraButtonClass | Change the extra button's class | string | void
 setExtraButtonText | Change the extra button's text | string | void
 processMassiveImport | Process/Calculate the massive data | function | void
 
+   * jQuery e.g.:
+```javascript
+$(".massimp-container").massimp("setInputFileInsideText", ".xls, .xlsx, .csv files ...");
+```
+   * Pure Javascript (ES6) e.g.:
+```javascript
+getElementsByClassName("massimp-container")[0]._massimp.setInputFileInsideText(".xls, .xlsx, .csv files ...");
+```
+
 ## Events (jQuery Only)
 
 Event | Description
 --- | ---
 after.mp.process | This event fires when the procedure/calculation is done
 
+   * jQuery e.g.:
+```javascript
+$(".massimp-container").on("after.mp.process", function(e, result)
+{
+   console.warn("Massive Import Result", result);
+
+   let alertText = "Massive Import Result:";
+   alertText += "\n\n";
+   result.forEach(function(obj, index)
+   {
+      Object.keys(obj).forEach(function(key, jndex)
+      {
+            let value = obj[key];
+            if(value == null)
+            {
+               value = "-";
+            }
+            else if(value instanceof File)
+            {
+               value = value.name;
+            }
+            alertText += key + ": " + value + "\n";
+      });
+
+      alertText += "\n";
+   });
+
+   alert(alertText);
+});
+```
+
 ## Support
 
 If you're having any issue by using Massimp, contact me through the following e-mail address:
+
 **[renan_ncs@msn.com](mailto:renan_ncs@msn.com)**
