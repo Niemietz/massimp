@@ -1,62 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Massimp v0.1 • by. Renan Niemietz Cardoso</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Massimp v0.1 • by. Renan Niemietz Cardoso</title>
 
-    <!---------- CSS ---------->
+        <!-- MATERIALIZE CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- MATERIALIZE -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- MASSIMP CSS v0.1 -->
+        <link rel="stylesheet" href="https://raw.githubusercontent.com/Niemietz/massimp/master/dist/css/massimp.min.css">
 
-    <!-- MASSIMP v0.1 -->
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/Niemietz/massimp/master/dist/css/massimp.min.css">
+        <!-- jQUERY (OPTIONAL) -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <!---------- JS ---------->
+        <!-- MATERIALIZE JS (OPTIONAL) -->
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
-    <!-- jQUERY v3.4.1 (OPTIONAL) -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- XLSX v0.14.0 -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.full.min.js"></script>
 
-    <!-- MATERIALIZE (OPTIONAL) -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+        <!-- MASSIMP JS v0.1 -->
+        <script type="text/javascript" src="https://raw.githubusercontent.com/Niemietz/massimp/master/dist/js/massimp.min.js"></script>
 
-    <!-- XLSX v0.14.3 -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.0/xlsx.full.min.js"></script>
-
-    <!-- MASSIMP v0.1 -->
-    <script type="text/javascript" src="https://raw.githubusercontent.com/Niemietz/massimp/master/dist/js/massimp.min.js"></script>
-
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(event)
-        {
-            const massimpOptions = {
-                attributes: [
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(event)
+            {
+                const massimpOptions = {
+                    attributes: [
+                        {
+                            valor: "name",
+                            titulo: "Name",
+                            isImage: false
+                        },
+                        {
+                            valor: "age",
+                            titulo: "Age",
+                            isImage: null
+                        },
+                        {
+                            valor: "phone",
+                            titulo: "Phone",
+                            isImage: false
+                        },
+                        {
+                            valor: "photo",
+                            titulo: "Profile Photo",
+                            isImage: true
+                        },
+                    ],
+                    onButtonClicked: function(result)
                     {
-                        valor: "name",
-                        titulo: "Name",
-                        isImage: false
+                        console.warn("Button clicked!", result);
+
+                        let alertText = "Processed Massive Data:";
+                        alertText += "\n\n";
+                        result.forEach(function(obj, index)
+                        {
+                            Object.keys(obj).forEach(function(key, jndex)
+                            {
+                                let value = obj[key];
+                                if(value == null)
+                                {
+                                    value = "-";
+                                }
+                                else if(value instanceof File)
+                                {
+                                    value = value.name;
+                                }
+                                alertText += key + ": " + value + "\n";
+                            });
+                
+                            alertText += "\n";
+                        });
+                
+                        alert(alertText);
                     },
+                    onError: function(error)
                     {
-                        valor: "age",
-                        titulo: "Age",
-                        isImage: null
+                        if(error != null)
+                        {
+                            if(typeof error === "string" && error.length > 0)
+                            {
+                                alert(error);
+                            }
+                            else if(error.message != null && error.length > 0)
+                            {
+                                alert(error.message);
+                            }
+                
+                            console.error(error);
+                        }
+                        else
+                        {
+                            alert("Erro desconhecido!");
+                            console.error("Erro desconhecido!");
+                        }
                     },
-                    {
-                        valor: "phone",
-                        titulo: "Phone",
-                        isImage: false
-                    },
-                    {
-                        valor: "photo",
-                        titulo: "Profile Photo",
-                        isImage: true
-                    },
-                ],
-                onButtonClicked: function(result)
+                    language: "en-US",
+                };
+
+                $(".massimp-container").on("after.mp.process", function(e, result)
                 {
-                    console.warn("Button clicked!", result);
+                    console.warn("Processed Massive Data", result);
 
                     let alertText = "Processed Massive Data:";
                     alertText += "\n\n";
@@ -75,75 +122,24 @@
                             }
                             alertText += key + ": " + value + "\n";
                         });
-            
+
                         alertText += "\n";
                     });
-            
+
                     alert(alertText);
-                },
-                onError: function(error)
-                {
-                    if(error != null)
-                    {
-                        if(typeof error === "string" && error.length > 0)
-                        {
-                            alert(error);
-                        }
-                        else if(error.message != null && error.length > 0)
-                        {
-                            alert(error.message);
-                        }
-            
-                        console.error(error);
-                    }
-                    else
-                    {
-                        alert("Erro desconhecido!");
-                        console.error("Erro desconhecido!");
-                    }
-                },
-                language: "en-US",
-            };
-
-            $(".massimp-container").on("after.mp.process", function(e, result)
-            {
-                console.warn("Processed Massive Data", result);
-
-                let alertText = "Processed Massive Data:";
-                alertText += "\n\n";
-                result.forEach(function(obj, index)
-                {
-                    Object.keys(obj).forEach(function(key, jndex)
-                    {
-                        let value = obj[key];
-                        if(value == null)
-                        {
-                            value = "-";
-                        }
-                        else if(value instanceof File)
-                        {
-                            value = value.name;
-                        }
-                        alertText += key + ": " + value + "\n";
-                    });
-
-                    alertText += "\n";
                 });
 
-                alert(alertText);
+                $(".massimp-container").massimp(massimpOptions);
             });
-
-            $(".massimp-container").massimp(massimpOptions);
-        });
-    </script>
-</head>
-<body>
-    <div class="container" style="padding-top: 50px">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="massimp-container"></div>
+        </script>
+    </head>
+    <body>
+        <div class="container" style="padding-top: 50px">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="massimp-container"></div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

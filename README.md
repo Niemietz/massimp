@@ -62,7 +62,7 @@ new Massimp(".massimp-container", [OPTIONS] );
 new Massimp(".massimp-container", {
     showInputFileText: false,
     maxVerticalRowsToDisplay: 3,
-    buttonText: "Make it happen"
+    buttonText: "Make it happen!"
 });
 ```
 
@@ -82,6 +82,7 @@ showExtraButton | false | Show or hide the extra button (Button without pre-acti
 colorExtraButtonClass | "red" | Extra button's class | string
 extraButtonText | "Cancel" | Extra button's text | string
 onExtraButtonClicked | null | Action after extra button has been clicked | function
+onError | function(error) { console.error(error) } | Action after an error occurs | function
 
 ## Methods
 

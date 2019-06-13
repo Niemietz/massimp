@@ -1154,15 +1154,15 @@ const Massimp = (function ()
             
                             attributeSelect.appendChild(emptyOption);
             
-                            _attributes.forEach(function(atributo, index)
+                            _attributes.forEach(function(attribute, index)
                             {
-                                if(atributo.isImage == null || atributo.isImage == false)
+                                if(attribute.isImage == null || attribute.isImage == false)
                                 {
                                     let option = document.createElement('option');
-                                    option.value = atributo.valor;
-                                    option.innerHTML = atributo.titulo;
+                                    option.value = attribute.value;
+                                    option.innerHTML = attribute.title;
             
-                                    if(hasHeader && (key == atributo.titulo || key == atributo.valor))
+                                    if(hasHeader && (key == attribute.title || key == attribute.value))
                                     {
                                         option.setAttribute("selected", true);
                                     }
@@ -1307,11 +1307,11 @@ const Massimp = (function ()
                                 Object.keys(_attributes).forEach(function(key, index)
                                 {
                                     // HEAD
-                                    if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].valor] != null) || _attributes[key].isImage == true)
+                                    if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].value] != null) || _attributes[key].isImage == true)
                                     {
                                         const indexHeadCol = document.createElement('th');
                                         indexHeadCol.setAttribute("scope", "col");
-                                        indexHeadCol.innerHTML = _attributes[key].titulo;
+                                        indexHeadCol.innerHTML = _attributes[key].title;
                                         if(_attributes[key].isImage == true)
                                         {
                                             indexHeadCol.style.textAlign = "center";
@@ -1329,10 +1329,10 @@ const Massimp = (function ()
                             let i = 0;
                             Object.keys(_attributes).forEach((key, index) =>
                             {
-                                if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].valor] != null) || _attributes[key].isImage == true)
+                                if(((_attributes[key].isImage == null || _attributes[key].isImage == false) && item[_attributes[key].value] != null) || _attributes[key].isImage == true)
                                 {
                                     const attributeCol = document.createElement('td');
-                                    attributeCol.classList.add("massimp-attribute-" + _attributes[key].valor);
+                                    attributeCol.classList.add("massimp-attribute-" + _attributes[key].value);
             
                                     let attributeContent = document.createElement('span');
                                     if(_attributes[key].isImage == true)
@@ -1490,7 +1490,7 @@ const Massimp = (function ()
                                     }
                                     else
                                     {
-                                        attributeContent.innerHTML = item[_attributes[key].valor];
+                                        attributeContent.innerHTML = item[_attributes[key].value];
                                         attributeCol.appendChild(attributeContent);
                                     }
                             
@@ -1635,20 +1635,20 @@ const Massimp = (function ()
                             const rows = tableBody.childNodes;
                             rows.forEach(function(row, index)
                             {
-                                const atributo = row.getElementsByClassName('massimp-attribute-col')[0].getElementsByTagName('select')[0].value;
-                                if(atributo != 0)
+                                const attribute = row.getElementsByClassName('massimp-attribute-col')[0].getElementsByTagName('select')[0].value;
+                                if(attribute != 0)
                                 {
                                     if(!ok)
                                     {
                                         ok = true;
                                     }
 
-                                    let from_to = { "from": index, "to": atributo };
+                                    let from_to = { "from": index, "to": attribute };
                                     if(_header)
                                     {
                                         const colunaExcel = row.getElementsByClassName("massimp-column-col")[0].getElementsByTagName('span')[0].innerHTML;
                     
-                                        from_to = { "from": colunaExcel, "to": atributo };
+                                        from_to = { "from": colunaExcel, "to": attribute };
                                     }
                                     
                                     array_FromTo.push(from_to);
@@ -1673,9 +1673,9 @@ const Massimp = (function ()
                                     // ADDING UNSET ATTRIBUTES WITH NULL VALUE
                                     _attributes.forEach(function(attr, index)
                                     {                        
-                                        if(attr.valor != null && new_item[attr.valor] == null && (attr.isImage == null || attr.isImage == false))
+                                        if(attr.value != null && new_item[attr.value] == null && (attr.isImage == null || attr.isImage == false))
                                         {
-                                            new_item[attr.valor] = null;
+                                            new_item[attr.value] = null;
                                         }
                                     });
                 
@@ -1746,14 +1746,14 @@ const Massimp = (function ()
                             useIndex = false;
                         }
 
-                        let newAttribute = { valor: "", titulo: "", isImage: false };
-                        if(_options.attributes[((useIndex) ? index : key)].valor != null)
+                        let newAttribute = { value: "", title: "", isImage: false };
+                        if(_options.attributes[((useIndex) ? index : key)].value != null)
                         {
-                            newAttribute.valor = _options.attributes[((useIndex) ? index : key)].valor;
+                            newAttribute.value = _options.attributes[((useIndex) ? index : key)].value;
                         }
-                        if(_options.attributes[((useIndex) ? index : key)].titulo != null)
+                        if(_options.attributes[((useIndex) ? index : key)].title != null)
                         {
-                            newAttribute.titulo = _options.attributes[((useIndex) ? index : key)].titulo;
+                            newAttribute.title = _options.attributes[((useIndex) ? index : key)].title;
                         }
                         if(_options.attributes[((useIndex) ? index : key)].isImage != null)
                         {
@@ -1767,7 +1767,7 @@ const Massimp = (function ()
                     let attr2Exclude = [];
                     for(let index = 0; index < _attributes.length; index++)
                     {
-                        const allOcorrencies = getAllIndexes(_attributes, _attributes[index].valor, "valor");
+                        const allOcorrencies = getAllIndexes(_attributes, _attributes[index].value, "value");
                         if(allOcorrencies.length > 1)
                         {
                             allOcorrencies.forEach(function(ocorrency, i)
