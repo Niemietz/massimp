@@ -5,9 +5,11 @@ Written in **JavaScript (ES6)**
 
 Created by **Renan Niemietz Cardoso**
 
+Read this in other languages: *[Português do Brasil](https://github.com/Niemietz/massimp/blob/master/README.pt-br.md)*.
+
 ## Description
 
-Massimp generates an input file element and other components such as buttons and tables in order to allow users to simply choose a spreadsheet file, relates each column with their corresponding object property and finally generates a javascript object to work with. Massimp simplify the way user's deal with a large amount of data when they need to be registered in database or something else.
+Massimp generates an input file element and other components such as buttons and tables in order to allow users to simply choose a spreadsheet file, relates each column with their corresponding object property and finally generates a javascript object to work with. Massimp simplify the way users deal with a large amount of data when they need to be registered in database or something else.
 
 ## Dependencies
 
@@ -27,7 +29,7 @@ Before declaring **massimp.min.js**, make sure **[Materialize CSS v0.100.0](http
 
 1. Create a **\<div\>** element with a class named **massimp-container**, inside your HTML file
 
-2. After document is loaded, start the Massimp element by doing the following:
+2. After document is loaded, initialize the Massimp element by doing the following:
 
 **jQuery:**
 ```javascript
@@ -71,7 +73,7 @@ new Massimp(".massimp-container", {
 Option | Default | Description | Type
 --- | --- | --- | ---
 language | Browser's language or "en-US" if browser's language is not supported | Component language (Only "pt-BR" and "en-US" are avalible for now) | string
-attributes | [ ] | Attributes do associate with the massive data file columns | Array of objects
+attributes | [ ] | Attributes to associate with the massive data file columns | array
 inputFileText | "List" | Text beside file input | string
 inputFileInsideText | "Choose a file" | Text inside file input | string
 maxVerticalRowsToDisplay | 5 | Number of visible rows vertically | number
@@ -92,7 +94,7 @@ setShowInputFileText | Show or hide the text beside file input | boolean | void
 setInputFileText | Change the text beside file input | string | void
 setInputFileInsideText | Change the text inside file input | string | void
 setMaxVerticalRowsToDisplay | Changes the number of visible rows vertically | number | void
-getNumberOfObjects | Gets the number of objects/lines to be inserted |  | number
+getNumberOfObjects | Gets the number of the spreadsheet lines |  | number
 setColorButtonClass | Change the main button's class | string | void
 setButtonText | Change the main button's text | string | void
 setShowExtraButton | Show or hide the extra button (Button without pre-action) | boolean | void
@@ -119,9 +121,9 @@ after.mp.process | This event fires when the procedure/calculation is done
 ```javascript
 $(".massimp-container").on("after.mp.process", function(e, result)
 {
-   console.warn("Massive Import Result", result);
+   console.warn("Processed Massive Data", result);
 
-   let alertText = "Massive Import Result:";
+   let alertText = "Processed Massive Data:";
    alertText += "\n\n";
    result.forEach(function(obj, index)
    {
