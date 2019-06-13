@@ -97,7 +97,7 @@ processMassiveImport | Process/Calculate the massive data | function | void
 
    * jQuery e.g.:
 ```javascript
-$(".massimp-container").massimp("setInputFileInsideText", ".xls, .xlsx, .csv files ...");
+$(".massimp-container").massimp("setInputFileInsideText", ".xls, .xlsx or .csv file ...");
 ```
    * Pure Javascript (ES6) e.g.:
 ```javascript
