@@ -5,6 +5,10 @@ Written in **JavaScript (ES6)**
 
 Created by **Renan Niemietz Cardoso**
 
+## Description
+
+Massimp generates an input file element and other components such as buttons and tables in order to allow users to simply choose a spreadsheet file, relates each column with their corresponding object property and finally generates a javascript object to work with. Massimp simplify the way user's deal with a large amount of data when they need to be registered in database or something else.
+
 ## Dependencies
 
 Before declaring **massimp.min.js**, make sure **[Materialize CSS v0.100.0](https://github.com/Dogfalo/materialize/tree/v0.100.0)**, **massimp.min.css** and **[XLSX v0.14.0](https://github.com/SheetJS/js-xlsx/tree/v0.14.0)** were declared previously in your HTML, like the following example:
