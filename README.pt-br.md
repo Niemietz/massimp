@@ -74,15 +74,15 @@ Opção | Padrão | Descrição | Tipo
 --- | --- | --- | ---
 language | Idioma do navegador ou "en-US" se o idioma do navegador não for suportado | Idioma do componente (Somente "pt-BR" e "en-US" estão disponíveis por enquanto) | string
 attributes | [ ] | Atributos para se associar as colunas do arquivo de dados massivo | array
-inputFileText | "Lista" | Texto ao lado do input de arquivo | string
-inputFileInsideText | "Escolha um arquivo" | Texto dentro do input de arquivo | string
+inputFileText | "List" | Texto ao lado do input de arquivo | string
+inputFileInsideText | "Choose a file" | Texto dentro do input de arquivo | string
 maxVerticalRowsToDisplay | 5 | Numero de linhas visíveis verticalmente | number
 colorButtonClass | "blue" | *Class* do botão principal | string
-buttonText | "Processar!" | Texto do botão principal | string
+buttonText | "Do it!" | Texto do botão principal | string
 onButtonClicked | null | Ação após o botão principal ter sido clicado (Acionado após o procedimente) | function
 showExtraButton | false | Exibe or esconde o butão extra (Botão sem ação prévia) | boolean
 colorExtraButtonClass | "red" | *Class* do botão extra | string
-extraButtonText | "Cancelar" | Texto do botão extra | string
+extraButtonText | "Cancel" | Texto do botão extra | string
 onExtraButtonClicked | null | Ação após botão extra ter sido clicado | function
 onError | function(error) { console.error(error) } | Ação após ocorrer um erro | function
 
