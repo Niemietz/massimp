@@ -101,7 +101,7 @@ $(".massimp-container").massimp("setInputFileInsideText", ".xls, .xlsx, .csv fil
 ```
    * Pure Javascript (ES6) e.g.:
 ```javascript
-getElementsByClassName("massimp-container")[0]._massimp.setInputFileInsideText(".xls, .xlsx, .csv files ...");
+getElementsByClassName("massimp-container")[0]._massimp.setInputFileInsideText(".xls, .xlsx or .csv file ...");
 ```
 
 ## Events (jQuery Only)
@@ -110,7 +110,7 @@ Event | Description
 --- | ---
 after.mp.process | This event fires when the procedure/calculation is done
 
-   * jQuery e.g.:
+   * e.g.:
 ```javascript
 $(".massimp-container").on("after.mp.process", function(e, result)
 {

@@ -21,16 +21,9 @@
 	height: auto;
 }
 
-.thumbnail {
-	max-width: 40%;
-}
-
-.italic { font-style: italic; }
-.small { font-size: 0.8em; }
-
 /** LIGHTBOX MARKUP **/
 
-.lightbox {
+.massimp-lightbox {
 	/** Default lightbox to hidden */
 	display: none;
 
@@ -46,14 +39,14 @@
 	cursor: default;
 }
 
-.lightbox img {
+.massimp-lightbox img {
 	/** Pad the lightbox image */
 	max-width: 90%;
 	max-height: 80%;
 	margin-top: 2%;
 }
 
-.lightbox:target {
+.massimp-lightbox:target {
 	/** Remove default browser outline */
 	outline: none;
 

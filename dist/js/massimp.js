@@ -1341,8 +1341,8 @@ const Massimp = (function ()
                                         
                                         const anchor = document.createElement('a');
                                         anchor.setAttribute("href", "javascript:void(0);");
-                                        anchor.classList.add("lightbox");
-                                        anchor.id = "lightbox-" + jndex.toString() + "-" + i.toString();
+                                        anchor.classList.add("massimp-lightbox");
+                                        anchor.id = "massimp-lightbox-" + jndex.toString() + "-" + i.toString();
             
                                         const anchorImage = document.createElement('img');
                                         anchorImage.id = "massimp-anchorimg-" + jndex.toString() + "-" + i.toString();
@@ -1377,7 +1377,7 @@ const Massimp = (function ()
                                         attributeImage.classList.add("massimp-img-thumbnail");
                                         attributeImage.onclick = function()
                                         {
-                                            const anchorId = "lightbox" + this.id.substr(13, this.id.length);
+                                            const anchorId = "massimp-lightbox" + this.id.substr(13, this.id.length);
             
                                             location.href = "#" + anchorId;
                                         }
