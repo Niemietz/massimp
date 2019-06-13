@@ -100,3 +100,8 @@ processMassiveImport | Process/Calculate the massive data | function | void
 Event | Description
 --- | ---
 after.mp.process | This event fires when the procedure/calculation is done
+
+## Support
+
+If you're having any issue by using Massimp, contact me through the following e-mail address:
+**[renan_ncs@msn.com](mailto:renan_ncs@msn.com)**
