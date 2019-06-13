@@ -1252,7 +1252,10 @@ const Massimp = (function ()
                         {
                             radPlanilha.setAttribute("checked", true);
                         }
-                        radPlanilha.onchange = onSheetSelect;
+                        radPlanilha.onchange = function()
+                        {
+                            onSheetSelect(this);
+                        }
                         
                         let label = document.createElement('span');
                         label.innerHTML = planilha.nome;
@@ -1910,11 +1913,13 @@ const Massimp = (function ()
                                 if(excelSheets.length > 1)
                                 {
                                     // SHOW SHEET SELECTION AND WHAT TO DO WHEN SHEET IS SELECTED
-                                    privateProps.get(this)._showSheetSelection(excelSheets, () =>
+                                    privateProps.get(this)._showSheetSelection(excelSheets, (selectedSheetRadio) =>
                                     {
-                                        _sheetIndex = parseInt(radPlanilha.value); // Change "global" sheetIndex variable
+                                        _sheetIndex = parseInt(selectedSheetRadio.value); // Change "global" sheetIndex variable
 
-                                        privateProps.get(this)._showColumnAssociationTable(hasHeader, sheetIndex);
+                                        privateProps.get(this)._removeImageAssociationTable();
+                                        
+                                        privateProps.get(this)._showColumnAssociationTable(hasHeader, _sheetIndex);
                                         
                                         let maxVerticalRowsToDisplay = 5;
                                         if(_options != null && _options.maxVerticalRowsToDisplay != null && typeof _options.maxVerticalRowsToDisplay === "number")
