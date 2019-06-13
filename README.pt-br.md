@@ -90,7 +90,6 @@ onError | function(error) { console.error(error) } | Ação após ocorrer um err
 
 Método | Descrição | Tipo de Parêmetro | Tipo de Retorno
 --- | --- | --- | ---
-setShowInputFileText | Exibe ou esconde o texto ao lado do input de arquivo | boolean | void
 setInputFileText | Altera o texto ao lado do input de arquivo | string | void
 setInputFileInsideText | Altera o texto dentro do input de arquivo | string | void
 setMaxVerticalRowsToDisplay | Altera o número de linhas visíveis verticalmente | number | void

@@ -90,7 +90,6 @@ onError | function(error) { console.error(error) } | Action after an error occur
 
 Method | Description | Parameter Type | Return Type
 --- | --- | --- | ---
-setShowInputFileText | Show or hide the text beside file input | boolean | void
 setInputFileText | Change the text beside file input | string | void
 setInputFileInsideText | Change the text inside file input | string | void
 setMaxVerticalRowsToDisplay | Changes the number of visible rows vertically | number | void
