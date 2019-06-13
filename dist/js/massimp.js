@@ -1875,6 +1875,13 @@ const Massimp = (function ()
                 {
                     try
                     {
+                        // REMOVE RADIO SHEETS
+                        const radioSheetsGroup = privateProps.get(this)._getSheetsRadioElements();
+                        while (radioSheetsGroup.firstChild)
+                        {
+                            radioSheetsGroup.removeChild(radioSheetsGroup.firstChild);
+                        }
+
                         // IF A FILE WAS SET
                         if(customFileInput.files[0] != null)
                         {
