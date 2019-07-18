@@ -9,7 +9,7 @@ Read this in other languages: *[Português do Brasil](https://github.com/Niemiet
 
 ## Description
 
-Massimp generates an input file element and other components such as buttons and tables in order to allow users to simply choose a spreadsheet file, relates each column with their corresponding object property and finally generates a javascript object to work with. Massimp simplify the way users deal with a large amount of data when they need to be registered in database or something else.
+Massimp generates an input file element and other components such as buttons and tables in order to allow users to simply choose a spreadsheet file, relates each column with their corresponding object property and finally generates a javascript object to work with. Massimp simplifies the way users deal with a large amount of data when they need to be registered in database or something else.
 
 ## Dependencies
 
